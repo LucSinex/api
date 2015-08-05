@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
- before_filter :authenticate_user_from_token!, except: [:index]
+ before_filter :authenticate_user_from_token!, except: [:index, :show]
 
   # Enter the normal Devise authentication path,
   # using the token authenticated user if available
-  before_filter :authenticate_user!, except: [:index]        
+  before_filter :authenticate_user!, except: [:index, :show]        
 
   # GET /posts
   # GET /posts.json
