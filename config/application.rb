@@ -23,6 +23,11 @@ module Api
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.action_dispatch.default_headers = {
+        'Access-Control-Allow-Origin' => 'http://lucsinex.github.io/em-blog',
+        'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    }
+
     config.middleware.use ActionDispatch::Flash
   end
 end
